@@ -6,8 +6,12 @@
   <title>Episode Map</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
     #map {
-      height: 500px;
+      height: 700px; /* Increased height */
       width: 100%;
     }
   </style>
@@ -17,13 +21,6 @@
   <div id="map"></div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    // Fix for default marker icons
-    L.Icon.Default.mergeOptions({
-      iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-      iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-      shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png'
-    });
-
     // Initialize the map
     const map = L.map('map').setView([0, 0], 2);
 
@@ -33,14 +30,9 @@
       maxZoom: 18
     }).addTo(map);
 
-    // Add example markers
-    L.marker([37.7749, -122.4194]) // San Francisco
-      .addTo(map)
+    // Add a sample marker
+    L.marker([37.7749, -122.4194]).addTo(map)
       .bindPopup('<b>Episode 1</b><br>Description.<br>Spooky Score: 7/10');
-
-    L.marker([51.5074, -0.1278]) // London
-      .addTo(map)
-      .bindPopup('<b>Episode 2</b><br>Description.<br>Spooky Score: 9/10');
   </script>
 </body>
 </html>
