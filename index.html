@@ -7,30 +7,28 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     html, body {
-      height: 100%;
-      margin: 0;
+      height: 100%; /* Full height of viewport */
+      margin: 0;   /* Remove margins */
+      overflow: hidden; /* Prevent scrollbars */
     }
+
     #map {
-      height: 1000px; /* Increased height */
-      width: 100%;
+      width: 100%;  /* Full width of parent */
+      height: 100%; /* Full height of parent */
     }
   </style>
 </head>
 <body>
-  <h1>Episode Map</h1>
   <div id="map"></div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    // Initialize the map
     const map = L.map('map').setView([0, 0], 2);
 
-    // Add OpenStreetMap tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       maxZoom: 18
     }).addTo(map);
 
-    // Add a sample marker
     L.marker([37.7749, -122.4194]).addTo(map)
       .bindPopup('<b>Episode 1</b><br>Description.<br>Spooky Score: 7/10');
   </script>
